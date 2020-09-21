@@ -1,2 +1,2 @@
 # simon_game
-Mi first JavaScript/jQuery project - Simon Game
+My first JavaScript/jQuery project - Simon Game
