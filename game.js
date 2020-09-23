@@ -21,6 +21,8 @@ $(document).keypress(function(event) {
     //starting the game
     //console.log(event.key, level);
     if (level == 0) {
+        $("#info1").text("");
+        $("#info2").text("");
         nextLevel();
     }
 })
@@ -31,7 +33,9 @@ $(".btn").click(function() {
     var buttonColor = $(this).attr("id");    
     animateButton(buttonColor);
     //console.log(buttonColor, userInpCount);
-    checkUserInput(buttonColor);
+    if (level != 0) {
+        checkUserInput(buttonColor);
+    }
 })
 
 
@@ -114,7 +118,9 @@ function checkUserInput(buttonColor) {
         setTimeout(function(){
             $("body").removeClass("game-over");
         }, patternDelay)
-        updateTitle("Game Over! Press any key to start again");
+        updateTitle("Game Over!");
+        $("#info1").text(`You've reached level ${level}!`);
+        $("#info2").text("Press any key to start again");
         init();
         //$(".btn").off("click");
     }
